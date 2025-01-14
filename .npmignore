@@ -1,0 +1,22 @@
+# 测试
+__tests__/
+coverage/
+*.test.ts
+*.spec.ts
+
+# 配置文件
+.eslintrc.json
+.prettierrc
+tsconfig.json
+jest.config.js
+
+# 开发工具
+.vscode/
+.idea/
+.github/
+
+# 其他
+.gitignore
+.npmrc
+*.log
+node_modules/ 

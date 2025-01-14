@@ -1,24 +1,64 @@
 {
-  "name": "jx3api",
-  "description": "jx3api的js sdk",
-  "version": "0.0.4",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "license": "MIT",
+  "name": "jx3api-ts",
+  "version": "1.0.0",
+  "description": "剑网3 API 的 TypeScript SDK，提供了一套完整的接口封装",
   "type": "module",
-  "homepage": "https://github.com/JX3API/JX3API-JS",
-  "scripts": {
-    "build": "rollup --config",
-    "pub":"npm publish"
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "jx3",
+    "api",
+    "sdk",
+    "剑网3",
+    "游戏数据"
+  ],
+  "author": {
+    "name": "Fine",
+    "email": "fine_951111@163.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JX3API/JX3API-TS"
+  },
+  "bugs": {
+    "url": "https://github.com/JX3API/JX3API-TS/issues"
+  },
+  "homepage": "https://github.com/JX3API/JX3API-TS#readme",
   "dependencies": {
-    "axios": "^1.6.8",
-    "ws": "^8.16.0"
+    "axios": "^1.6.2"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "rollup": "^4.14.3"
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "eslint": "^8.54.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "rollup": "^4.6.1",
+    "tslib": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
