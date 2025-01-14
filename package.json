@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "description": "剑网3 API 的 TypeScript SDK，提供了一套完整的接口封装",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.mjs"
   },
   "files": [
     "dist",

@@ -10,7 +10,8 @@ export default {
     format: 'es',
     sourcemap: true,
     preserveModules: true,
-    exports: 'named'
+    exports: 'named',
+    entryFileNames: '[name].mjs' 
   },
   external: ['axios'],
   plugins: [
