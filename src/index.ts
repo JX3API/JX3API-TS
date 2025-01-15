@@ -17,6 +17,21 @@ import { WebSocketService } from './services/websocket';
 /**
  * JX3API 客户端类
  * @class JX3API
+ * @description 用于访问剑网3游戏相关数据的 API 客户端
+ * @property {ServerService} server - 服务器相关接口服务
+ * @property {NewsService} news - 新闻资讯相关接口服务
+ * @property {RoleService} role - 角色相关接口服务
+ * @property {BattleService} battle - 战斗相关接口服务
+ * @property {SocialService} social - 社交相关接口服务
+ * @property {EconomyService} economy - 经济相关接口服务
+ * @property {EntertainmentService} entertainment - 娱乐相关接口服务
+ * @property {ToolsService} tools - 工具相关接口服务
+ * @property {StatisticsService} statistics - 统计相关接口服务
+ * @property {WebSocketService} ws - WebSocket 相关接口服务
+ * @param {Object} options - 配置选项
+ * @param {string} [options.token] - API 访问令牌
+ * @param {string} [options.ticket] - 用户票据
+ * @param {string} [options.baseURL] - API 基础 URL
  */
 export class JX3API {
   /** 服务器相关接口服务 */

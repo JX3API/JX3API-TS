@@ -8,7 +8,7 @@ export class RoleService extends JX3APIClient {
    * @param name 角色名
    */
   async getRoleInfo(server: string, name: string): Promise<RoleInfo> {
-    return this.get('/data/role/info', { server, name });
+    return this.get('/data/role/detailed', { server, name });
   }
 
   /**
@@ -17,7 +17,7 @@ export class RoleService extends JX3APIClient {
    * @param name 角色名
    */
   async getEquipment(server: string, name: string): Promise<Equipment[]> {
-    return this.get('/data/role/equipment', { server, name });
+    return this.get('/data/role/attribute', { server, name });
   }
 
   /**

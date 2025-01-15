@@ -1,0 +1,2 @@
+import{JX3APIClient as e}from"../client.js";class t extends e{async getOfficialNews(e){return this.get("/data/news/official",{limit:e})}async getMaintenanceNews(){return this.get("/data/news/maintenance")}async getEvents(){return this.get("/data/news/event")}async getDailyTasks(e){return this.get("/data/daily/task",{server:e})}async getCalendar(e){return this.get("/data/calendar/active",{server:e})}async getGardenItems(e){return this.get("/data/garden/items",{name:e})}}export{t as NewsService};
+//# sourceMappingURL=news.js.map
