@@ -7,10 +7,9 @@ export default {
   input: 'src/index.ts',
   output: {
     dir: 'dist',
-    format: 'es',
+    format: 'esm',
     sourcemap: true,
     preserveModules: true,
-    exports: 'named',
     entryFileNames: '[name].mjs' 
   },
   external: ['axios'],
