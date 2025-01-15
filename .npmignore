@@ -1,25 +1,6 @@
-# 源代码和构建配置
-src/
-scripts/
-rollup.config.js
-
-# 测试
-__tests__/
+.github
 coverage/
-*.test.ts
-*.spec.ts
-
-# 配置文件
-.eslintrc.json
-.prettierrc
+node_modules/
+.jest.config.mjs
+.editorconfig
 tsconfig.json
-jest.config.js
-
-# 开发工具
-.vscode/
-.idea/
-.github/
-
-# 其他
-.gitignore
-*.log 
