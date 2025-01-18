@@ -51,8 +51,8 @@ console.log(res);
 正在开发中，敬请期待
 ## 开发环境要求
 
-- Node.js >= 14.0.0
-- TypeScript >= 4.5.0
+- Node.js >= v22.12.0
+- TypeScript >= 5.7.2
 
 ## 开发相关
 

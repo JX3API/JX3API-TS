@@ -6,6 +6,7 @@
   "module": "lib/index.mjs",
   "browser": "lib/index.mjs",
   "types": "lib/index.d.ts",
+  "node": ">=18.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production type=ESM rollup -c",
     "lint": "eslint src --ext .ts",
