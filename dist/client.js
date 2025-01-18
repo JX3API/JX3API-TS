@@ -1,2 +1,0 @@
-import t from"axios";class e{constructor(e){const{token:s,ticket:i,baseURL:r="https://www.jx3api.com"}=e;this.token=s,this.ticket=i,this.client=t.create({baseURL:r,headers:s?{token:s}:{}}),this.client.interceptors.response.use((t=>{const{code:e,msg:s,data:i}=t.data;if(200!==e)throw new Error(`API Error: ${s}`);return i}),(t=>{throw t}))}async get(t,e){return await this.client.get(t,{params:{...e,ticket:this.ticket}})}async post(t,e){return await this.client.post(t,{...e,ticket:this.ticket})}}export{e as JX3APIClient};
-//# sourceMappingURL=client.js.map

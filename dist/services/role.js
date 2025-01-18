@@ -1,2 +1,0 @@
-import{JX3APIClient as e}from"../client.js";class t extends e{async getRoleInfo(e,t){return this.get("/data/role/info",{server:e,name:t})}async getEquipment(e,t){return this.get("/data/role/equipment",{server:e,name:t})}async getAchievements(e,t,n){return this.get("/data/role/achievement",{server:e,name:t,category:n})}async getDungeonRecords(e,t,n){return this.get("/data/role/dungeon",{server:e,name:t,dungeon:n})}async getEquipmentRank(e,t){return this.get("/data/role/equipment/rank",{server:e,name:t})}}export{t as RoleService};
-//# sourceMappingURL=role.js.map

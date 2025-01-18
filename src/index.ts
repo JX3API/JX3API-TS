@@ -3,57 +3,28 @@
  * @description JX3API 是一个用于访问剑网3游戏相关数据的 API 客户端
  */
 
-import { ServerService } from './services/server';
-import { NewsService } from './services/news';
-import { RoleService } from './services/role';
-import { BattleService } from './services/battle';
-import { SocialService } from './services/social';
-import { EconomyService } from './services/economy';
-import { EntertainmentService } from './services/entertainment';
-import { ToolsService } from './services/tools';
-import { StatisticsService } from './services/statistics';
-import { WebSocketService } from './services/websocket';
+import { ClientService } from './services/client';
+
+// import { WebSocketService } from './services/websocket';
 
 /**
  * JX3API 客户端类
  * @class JX3API
  * @description 用于访问剑网3游戏相关数据的 API 客户端
- * @property {ServerService} server - 服务器相关接口服务
- * @property {NewsService} news - 新闻资讯相关接口服务
- * @property {RoleService} role - 角色相关接口服务
- * @property {BattleService} battle - 战斗相关接口服务
- * @property {SocialService} social - 社交相关接口服务
- * @property {EconomyService} economy - 经济相关接口服务
- * @property {EntertainmentService} entertainment - 娱乐相关接口服务
- * @property {ToolsService} tools - 工具相关接口服务
- * @property {StatisticsService} statistics - 统计相关接口服务
+ * @property {ClientService} client - 接口相关服务
  * @property {WebSocketService} ws - WebSocket 相关接口服务
  * @param {Object} options - 配置选项
  * @param {string} [options.token] - API 访问令牌
  * @param {string} [options.ticket] - 用户票据
  * @param {string} [options.baseURL] - API 基础 URL
  */
-export class JX3API {
-  /** 服务器相关接口服务 */
-  public readonly server: ServerService;
-  /** 新闻资讯相关接口服务 */
-  public readonly news: NewsService;
-  /** 角色相关接口服务 */
-  public readonly role: RoleService;
-  /** 战斗相关接口服务 */
-  public readonly battle: BattleService;
-  /** 社交相关接口服务 */
-  public readonly social: SocialService;
-  /** 经济相关接口服务 */
-  public readonly economy: EconomyService;
-  /** 娱乐相关接口服务 */
-  public readonly entertainment: EntertainmentService;
-  /** 工具相关接口服务 */
-  public readonly tools: ToolsService;
-  /** 统计相关接口服务 */
-  public readonly statistics: StatisticsService;
+export default class JX3API {
+
+  /** 接口相关服务 */
+  public readonly client: ClientService;
+
   /** WebSocket 相关接口服务 */
-  public readonly ws: WebSocketService;
+  // public readonly ws: WebSocketService;
 
   /**
    * 创建一个新的 JX3API 实例
@@ -67,16 +38,8 @@ export class JX3API {
     ticket?: string;
     baseURL?: string;
   }) {
-    this.server = new ServerService(options);
-    this.news = new NewsService(options);
-    this.role = new RoleService(options);
-    this.battle = new BattleService(options);
-    this.social = new SocialService(options);
-    this.economy = new EconomyService(options);
-    this.entertainment = new EntertainmentService(options);
-    this.tools = new ToolsService(options);
-    this.statistics = new StatisticsService(options);
-    this.ws = new WebSocketService(options);
+    this.client = new ClientService(options);
+    // this.ws = new WebSocketService(options);
   }
 }
 

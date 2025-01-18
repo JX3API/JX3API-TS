@@ -1,84 +1,160 @@
-// WebSocket事件类型
-export type WSEventType = 
-  | 'server_status'      // 服务器状态
-  | 'gold_price'         // 金价变动
-  | 'auction_item'       // 交易行物品
-  | 'system_notice'      // 系统公告
-  | 'battle_field'       // 战场状态
-  | 'team_recruit'      // 团队招募
-  | 'black_market';      // 黑市物品
-
-// WebSocket消息
-export interface WSMessage<T = any> {
-  type: WSEventType;
-  data: T;
-  time: string;
-}
-
-// WebSocket配置
-export interface WSConfig {
-  reconnect?: boolean;
-  reconnectInterval?: number;
-  maxReconnectAttempts?: number;
-  heartbeatInterval?: number;
-}
-
-// WebSocket订阅配置
-export interface WSSubscription<T = any> {
-  event: WSEventType;
-  callback: (data: T) => void;
-  filter?: {
-    server?: string;
-    item_id?: number;
-    price_range?: {
-      min: number;
-      max: number;
+type WsEvent = {
+  '1001': {
+    action: 1001,
+    data: {
+      zone: string;
+      server: string;
+      name: string;
+      event: string;
+      level: number;
+      time: number;
     };
-  };
-}
+  },
+  '1002': {
+    action: 1002,
+    data: {
+      zone: string;
+      server: string;
+      map_name: string;
+      min_time: number;
+      max_time: number;
+      level: number;
+      time: number;
+    };
+  },
+  '1003': {
+    action: 1003,
+    data: {
+      zone: string;
+      server: string;
+      name: string;
+      map_name: string;
+      level: number;
+      horse: string;
+      time: number;
+    };
+  },
+  '1004': {
+    action: 1004,
+    data: {
+      zone: string;
+      server: string;
+      time: number;
+    };
+  },
+  '1005': {
+    action: 1005,
+    data: {
+      zone: string;
+      server: string;
+      time: number;
+    };
+  },
+  '1006': {
+    action: 1006,
+    data: {
+      zone: string;
+      server: string;
+      name: string[];
+      time: number;
+    };
+  },
+  '1007': {
+    action: 1007,
+    data: {
+      zone: string;
+      server: string;
+      name: string;
+      map_name: string;
+      sender: string;
+      receive: string;
+      time: number;
+    };
+  },
+  '1008': {
+    action: 1008,
+    data: {
+      zone: string;
+      server: string;
+      role_name: string;
+      map_name: string;
+      name: string;
+      time: number;
+    };
+  },
+  '1009': {
+    action: 1009,
+    data: {
+      zone: string;
+      server: string;
+      subserver: string;
+      name: string;
+      time: number;
+    };
+  },
+  '1010': {
+    action: 1010,
+    data: {
+      zone: string;
+      server: string;
+      map_name: string;
+      time: number;
+    };
+  },
+  '1012': {
+    action: 1012,
+    data: {
+      zone: string;
+      server: string;
+      name: string;
+      map_name: string;
+      time: number;
+    };
+  },
+  '1013': {
+    action: 1013,
+    data: {
+      zone: string;
+      server: string;
+      role_name: string;
+      camp_name: string;
+      map_name: string;
+      level: number;
+      name: string;
+      time: number;
+    };
+  },
+  '1014': {
+    action: 1014,
+    data: {
+      zone: string;
+      server: string;
+      role_name: string;
+      camp_name: string;
+      name: string;
+      amount: string;
+      time: number;
+    };
+  },
+  '1101': {
+    action: 1101,
+    data: {
+      zone: string;
+      server: string;
+      castle: string;
+      camp_name: string;
+      time: number;
+    };
+  },
+  '1102': {
+    action: 1102,
+    data: {
+      zone: string;
+      server: string;
+      name: string;
+      time: number;
+    };
+  },
+};
 
-// 服务器状态事件
-export interface ServerStatusEvent {
-  server: string;
-  status: 'online' | 'offline' | 'maintenance';
-  population: number;
-  queue_length?: number;
-  maintenance_info?: {
-    start_time: string;
-    end_time: string;
-    description: string;
-  };
-}
 
-// 金价变动事件
-export interface GoldPriceEvent {
-  server: string;
-  price: number;
-  change: number;
-  trend: 'up' | 'down' | 'stable';
-}
-
-// 交易行物品事件
-export interface AuctionItemEvent {
-  server: string;
-  item: {
-    id: number;
-    name: string;
-    quality: string;
-  };
-  price: number;
-  unit_price: number;
-  count: number;
-  seller: string;
-  remaining_time: number;
-}
-
-// 系统公告事件
-export interface SystemNoticeEvent {
-  id: string;
-  type: 'info' | 'warning' | 'error';
-  title: string;
-  content: string;
-  server?: string;
-  expire_time?: string;
-} 
