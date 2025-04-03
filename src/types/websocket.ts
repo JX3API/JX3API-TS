@@ -1,4 +1,4 @@
-type WsEvent = {
+export type WsEvent = {
   '1001': {
     action: 1001,
     data: {
@@ -153,6 +153,14 @@ type WsEvent = {
       server: string;
       name: string;
       time: number;
+    };
+  },
+  '2005': {
+    action: 2005,
+    data: {
+      server: string;
+      castle: string;
+      start: number;
     };
   },
 };

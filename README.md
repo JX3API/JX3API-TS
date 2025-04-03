@@ -24,31 +24,60 @@ yarn add jx3api-ts
 ## 快速开始
 
 ```typescript
-import  JX3API  from 'jx3api-ts';
+import JX3API, { ClientService } from 'jx3api-ts';
 
-// 创建实例
-const jx3 = new JX3API({
+// 使用静态类方式
+const clientService = new JX3API.ClientService({
+  token: 'your_token',  // 可选
+  ticket: 'your_ticket' // 可选
+});
+
+// 或者直接导入并使用ClientService
+const client = new ClientService({
   token: 'your_token',  // 可选
   ticket: 'your_ticket' // 可选
 });
 ```
 ```typescript
 // 查询服务器状态
-const res = await jx3.client.getServerStatus({
+const res = await clientService.getServerStatus({
     server: '梦江南',
 });
 console.log(res);
 ```
 ```typescript
 // 获取活动日历
-const res = await jx3.client.getActiveCalendar({
+const res = await clientService.getActiveCalendar({
     server: '梦江南',
     num: 1,
 });
 console.log(res);
 ```
 ## Websocket
-正在开发中，敬请期待
+
+```typescript
+import { JX3WebSocket } from 'jx3api-ts';
+
+// 创建WebSocket实例
+const ws = new JX3WebSocket({
+  wsURL: 'wss://socket.jx3api.com',
+  wstoken: 'your_token', // 可选
+  reconnect: {
+    enabled: true,
+    maxAttempts: 5,
+    delay: 3000,
+    backoffFactor: 1.5
+  }
+});
+
+// 连接WebSocket
+ws.connect();
+
+// 监听事件
+ws.on('message', (data) => {
+  console.log('收到消息:', data);
+});
+```
 ## 开发环境要求
 
 - Node.js >= v22.12.0
@@ -70,4 +99,4 @@ npm run lint
 
 ## 许可证
 
-MIT License 
+MIT License
