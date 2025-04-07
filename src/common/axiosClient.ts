@@ -5,16 +5,12 @@ export class JX3APIClient {
   private token?: string;
   private ticket?: string;
 
-  constructor(options: {
-    token?: string;
-    ticket?: string;
-    baseURL?: string;
-  }) {
+  constructor(options: { token?: string; ticket?: string; baseURL?: string }) {
     const { token, ticket, baseURL = 'https://www.jx3api.com' } = options;
-    
+
     this.token = token;
     this.ticket = ticket;
-    
+
     this.client = axios.create({
       baseURL,
       headers: token ? { token } : {},
@@ -31,22 +27,28 @@ export class JX3APIClient {
       },
       (error) => {
         throw error;
-      }
+      },
     );
   }
 
-  protected async get<T>(endpoint: string, params?: Record<string, any>): Promise<T> {
+  protected async get<T>(
+    endpoint: string,
+    params?: Record<string, any>,
+  ): Promise<T> {
     const response = await this.client.get(endpoint, {
-      params: { ...params, ticket: this.ticket }
+      params: { ...params, ticket: this.ticket },
     });
     return response as T;
   }
 
-  protected async post<T>(endpoint: string, data?: Record<string, any>): Promise<T> {
+  protected async post<T>(
+    endpoint: string,
+    data?: Record<string, any>,
+  ): Promise<T> {
     const response = await this.client.post(endpoint, {
       ...data,
-      ticket: this.ticket
+      ticket: this.ticket,
     });
     return response as T;
   }
-} 
+}

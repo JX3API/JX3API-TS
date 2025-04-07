@@ -26,7 +26,7 @@ export default {
       name: 'index',
       exports: 'named', // 指定导出模式（自动、默认、命名、无）
       preserveModulesRoot: 'src', // 将保留的模块放在根级别的此路径下
-    }
+    },
   ],
   plugins: [
     json(),

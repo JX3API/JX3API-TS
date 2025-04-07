@@ -1,5 +1,119 @@
-import { JX3APIClient } from '../client';
-import { ActiveCalendar, ActiveCalendarParams, ActiveListCalendar, ActiveListCalendarParams, ActiveCelebs, ActiveCelebsParams, ExamAnswer, ExamAnswerParams, HomeFlower, HomeFlowerParams, HomeFurniture, HomeFurnitureParams, HomeTravel, HomeTravelParams, NewsItem, NewsParams, ServerMaster, ServerMasterParams, NewsAnnounce, NewsAnnounceParams, SkillRecord, ServerCheck, ServerCheckParams, ServerStatus, ServerStatusParams, ActiveMonster, FireworksCollect, FireworksCollectParams, FireworksRecord, FireworksRecordParams, AuctionRecord, AuctionRecordParams, DiluRecord, DiluRecordParams, FireworksStatistical, FireworksStatisticalParams, FraudDetailed, FraudDetailedParams, LuckStatistical, LuckStatisticalParams, LuckRecent, LuckRecentParams, LuckAdventure, LuckAdventureParams, LuckUnfinished, LuckUnfinishedParams, RankServerStatistical, RankServerStatisticalParams, RankStatistical, RankStatisticalParams, MemberStudent, MemberStudentParams, MemberRecruit, MemberRecruitParams, MemberTeacher, MemberTeacherParams, TeamCdList, TeamCdListParams, SaveRoleDetailed, SaveRoleDetailedParams, RewardServerStatistical, RewardServerStatisticalParams, RewardStatistical, RewardStatisticalParams, RoleDetailed, RoleDetailedParams, SchoolForce, SchoolForceParams, RoleMonster, RoleMonsterParams, RoleAchievement, RoleAchievementParams, RoleAttribute, RoleAttributeParams, SchoolMatrix, SchoolMatrixParams, ServerSand, ServerSandParams, ServerAntivice, ServerEvent, SchoolSeniority, SchoolSeniorityParams, SchoolSkill, SchoolSkillParams, ServerLeader, ShowCache, ShowCacheParams, ShowRandom, ShowRandomParams, ShowCard, ShowCardParams, TiebaItemRecord, TiebaItemRecordsParams, TradeDemon, TradeDemonParams, TuilanAchievement, TuilanAchievementParams, IdiomSolitaire, IdiomSolitaireParams, MixedChat, MixedChatParams, TiebaRandom, TiebaRandomParams, KugouMusic, KugouMusicParams, NeteaseMusic, NeteaseMusicParams, TencentMusic, TencentMusicParams, SaohuaRandom, SaohuaContent, SoundConverter, SoundConverterParams } from '../types/client';
+import { JX3APIClient } from '../common/axiosClient';
+import {
+  ActiveCalendar,
+  ActiveCalendarParams,
+  ActiveListCalendar,
+  ActiveListCalendarParams,
+  ActiveCelebs,
+  ActiveCelebsParams,
+  ExamAnswer,
+  ExamAnswerParams,
+  HomeFlower,
+  HomeFlowerParams,
+  HomeFurniture,
+  HomeFurnitureParams,
+  HomeTravel,
+  HomeTravelParams,
+  NewsItem,
+  NewsParams,
+  ServerMaster,
+  ServerMasterParams,
+  NewsAnnounce,
+  NewsAnnounceParams,
+  SkillRecord,
+  ServerCheck,
+  ServerCheckParams,
+  ServerStatus,
+  ServerStatusParams,
+  ActiveMonster,
+  FireworksCollect,
+  FireworksCollectParams,
+  FireworksRecord,
+  FireworksRecordParams,
+  AuctionRecord,
+  AuctionRecordParams,
+  DiluRecord,
+  DiluRecordParams,
+  FireworksStatistical,
+  FireworksStatisticalParams,
+  FraudDetailed,
+  FraudDetailedParams,
+  LuckStatistical,
+  LuckStatisticalParams,
+  LuckRecent,
+  LuckRecentParams,
+  LuckAdventure,
+  LuckAdventureParams,
+  LuckUnfinished,
+  LuckUnfinishedParams,
+  RankServerStatistical,
+  RankServerStatisticalParams,
+  RankStatistical,
+  RankStatisticalParams,
+  MemberStudent,
+  MemberStudentParams,
+  MemberRecruit,
+  MemberRecruitParams,
+  MemberTeacher,
+  MemberTeacherParams,
+  TeamCdList,
+  TeamCdListParams,
+  SaveRoleDetailed,
+  SaveRoleDetailedParams,
+  RewardServerStatistical,
+  RewardServerStatisticalParams,
+  RewardStatistical,
+  RewardStatisticalParams,
+  RoleDetailed,
+  RoleDetailedParams,
+  SchoolForce,
+  SchoolForceParams,
+  RoleMonster,
+  RoleMonsterParams,
+  RoleAchievement,
+  RoleAchievementParams,
+  RoleAttribute,
+  RoleAttributeParams,
+  SchoolMatrix,
+  SchoolMatrixParams,
+  ServerSand,
+  ServerSandParams,
+  ServerAntivice,
+  ServerEvent,
+  SchoolSeniority,
+  SchoolSeniorityParams,
+  SchoolSkill,
+  SchoolSkillParams,
+  ServerLeader,
+  ShowCache,
+  ShowCacheParams,
+  ShowRandom,
+  ShowRandomParams,
+  ShowCard,
+  ShowCardParams,
+  TiebaItemRecord,
+  TiebaItemRecordsParams,
+  TradeDemon,
+  TradeDemonParams,
+  TuilanAchievement,
+  TuilanAchievementParams,
+  IdiomSolitaire,
+  IdiomSolitaireParams,
+  MixedChat,
+  MixedChatParams,
+  TiebaRandom,
+  TiebaRandomParams,
+  KugouMusic,
+  KugouMusicParams,
+  NeteaseMusic,
+  NeteaseMusicParams,
+  TencentMusic,
+  TencentMusicParams,
+  SaohuaRandom,
+  SaohuaContent,
+  SoundConverter,
+  SoundConverterParams,
+} from '../types/resType';
 
 export class ClientService extends JX3APIClient {
   /**
@@ -7,7 +121,9 @@ export class ClientService extends JX3APIClient {
    * @param params.server 服务器名（可选）
    * @param params.num 日期偏移值：0-当天，1-明天，2-后天（可选）
    */
-  async getActiveCalendar(params?: ActiveCalendarParams): Promise<ActiveCalendar> {
+  async getActiveCalendar(
+    params?: ActiveCalendarParams,
+  ): Promise<ActiveCalendar> {
     return this.get('/data/active/calendar', params);
   }
 
@@ -15,7 +131,9 @@ export class ClientService extends JX3APIClient {
    * 获取活动列表日历
    * @param params.num 预测时间范围，返回指定日期的月历，默认15天
    */
-  async getActiveListCalendar(params?: ActiveListCalendarParams): Promise<ActiveListCalendar> {
+  async getActiveListCalendar(
+    params?: ActiveListCalendarParams,
+  ): Promise<ActiveListCalendar> {
     return this.get('/data/active/list/calendar', params);
   }
 
@@ -121,7 +239,9 @@ export class ClientService extends JX3APIClient {
    * @param params.server 服务器名
    * @param params.num 统计时间范围（天数），默认7天，范围1-30（可选）
    */
-  async getFireworksCollect(params: FireworksCollectParams): Promise<FireworksCollect[]> {
+  async getFireworksCollect(
+    params: FireworksCollectParams,
+  ): Promise<FireworksCollect[]> {
     return this.get('/data/fireworks/collect', params);
   }
 
@@ -130,7 +250,9 @@ export class ClientService extends JX3APIClient {
    * @param params.server 服务器名
    * @param params.name 角色名
    */
-  async getFireworksRecords(params: FireworksRecordParams): Promise<FireworksRecord[]> {
+  async getFireworksRecords(
+    params: FireworksRecordParams,
+  ): Promise<FireworksRecord[]> {
     return this.get('/data/fireworks/records', params);
   }
 
@@ -140,7 +262,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 物品名称（可选）
    * @param params.limit 返回记录数量限制，默认50，范围1-100（可选）
    */
-  async getAuctionRecords(params: AuctionRecordParams): Promise<AuctionRecord[]> {
+  async getAuctionRecords(
+    params: AuctionRecordParams,
+  ): Promise<AuctionRecord[]> {
     return this.get('/data/auction/records', params);
   }
 
@@ -158,7 +282,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 烟花名称
    * @param params.limit 返回记录数量限制，默认20，范围1-50（可选）
    */
-  async getFireworksStatistical(params: FireworksStatisticalParams): Promise<FireworksStatistical[]> {
+  async getFireworksStatistical(
+    params: FireworksStatisticalParams,
+  ): Promise<FireworksStatistical[]> {
     return this.get('/data/fireworks/statistical', params);
   }
 
@@ -176,7 +302,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 奇遇名称
    * @param params.limit 返回记录数量限制，默认50，范围1-50（可选）
    */
-  async getLuckStatistical(params: LuckStatisticalParams): Promise<LuckStatistical[]> {
+  async getLuckStatistical(
+    params: LuckStatisticalParams,
+  ): Promise<LuckStatistical[]> {
     return this.get('/data/luck/statistical', params);
   }
 
@@ -194,7 +322,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 角色名
    * @param params.ticket 推栏标识（可选）
    */
-  async getLuckAdventure(params: LuckAdventureParams): Promise<LuckAdventure[]> {
+  async getLuckAdventure(
+    params: LuckAdventureParams,
+  ): Promise<LuckAdventure[]> {
     return this.get('/data/luck/adventure', params);
   }
 
@@ -204,7 +334,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 角色名
    * @param params.ticket 推栏标识（可选）
    */
-  async getLuckUnfinished(params: LuckUnfinishedParams): Promise<LuckUnfinished[]> {
+  async getLuckUnfinished(
+    params: LuckUnfinishedParams,
+  ): Promise<LuckUnfinished[]> {
     return this.get('/data/luck/unfinished', params);
   }
 
@@ -213,7 +345,9 @@ export class ClientService extends JX3APIClient {
    * @param params.table 榜单类型：个人、帮会、阵营、试炼
    * @param params.name 榜单名称
    */
-  async getRankServerStatistical(params: RankServerStatisticalParams): Promise<RankServerStatistical[]> {
+  async getRankServerStatistical(
+    params: RankServerStatisticalParams,
+  ): Promise<RankServerStatistical[]> {
     return this.get('/data/rank/server/statistical', params);
   }
 
@@ -223,7 +357,9 @@ export class ClientService extends JX3APIClient {
    * @param params.table 榜单类型：个人、帮会、阵营、试炼
    * @param params.name 榜单名称
    */
-  async getRankStatistical(params: RankStatisticalParams): Promise<RankStatistical[]> {
+  async getRankStatistical(
+    params: RankStatisticalParams,
+  ): Promise<RankStatistical[]> {
     return this.get('/data/rank/statistical', params);
   }
 
@@ -271,7 +407,9 @@ export class ClientService extends JX3APIClient {
    * @param params.roleid 角色ID
    * @param params.ticket 推栏标识
    */
-  async saveRoleDetailed(params: SaveRoleDetailedParams): Promise<SaveRoleDetailed> {
+  async saveRoleDetailed(
+    params: SaveRoleDetailedParams,
+  ): Promise<SaveRoleDetailed> {
     return this.get('/save/role/detailed', params);
   }
 
@@ -280,7 +418,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 物品名称
    * @param params.limit 返回记录数量限制，默认30，范围1-100（可选）
    */
-  async getRewardServerStatistical(params: RewardServerStatisticalParams): Promise<RewardServerStatistical[]> {
+  async getRewardServerStatistical(
+    params: RewardServerStatisticalParams,
+  ): Promise<RewardServerStatistical[]> {
     return this.get('/data/reward/server/statistical', params);
   }
 
@@ -290,7 +430,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 物品名称
    * @param params.limit 返回记录数量限制，默认20，范围1-100（可选）
    */
-  async getRewardStatistical(params: RewardStatisticalParams): Promise<RewardStatistical[]> {
+  async getRewardStatistical(
+    params: RewardStatisticalParams,
+  ): Promise<RewardStatistical[]> {
     return this.get('/data/reward/statistical', params);
   }
 
@@ -329,7 +471,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 成就名称
    * @param params.ticket 推栏标识
    */
-  async getRoleAchievement(params: RoleAchievementParams): Promise<RoleAchievement> {
+  async getRoleAchievement(
+    params: RoleAchievementParams,
+  ): Promise<RoleAchievement> {
     return this.get('/data/role/achievement', params);
   }
 
@@ -379,7 +523,9 @@ export class ClientService extends JX3APIClient {
    * @param params.school 心法名称
    * @param params.ticket 推栏标识
    */
-  async getSchoolSeniority(params: SchoolSeniorityParams): Promise<SchoolSeniority[]> {
+  async getSchoolSeniority(
+    params: SchoolSeniorityParams,
+  ): Promise<SchoolSeniority[]> {
     return this.get('/data/school/seniority', params);
   }
 
@@ -433,7 +579,9 @@ export class ClientService extends JX3APIClient {
    * @param params.name 物品名称
    * @param params.limit 返回记录数量限制，默认10，范围1-50（可选）
    */
-  async getTiebaItemRecords(params: TiebaItemRecordsParams): Promise<TiebaItemRecord[]> {
+  async getTiebaItemRecords(
+    params: TiebaItemRecordsParams,
+  ): Promise<TiebaItemRecord[]> {
     return this.get('/data/tieba/item/records', params);
   }
 
@@ -454,7 +602,9 @@ export class ClientService extends JX3APIClient {
    * @param params.subclass 资历子分类
    * @param params.ticket 推栏标识
    */
-  async getTuilanAchievement(params: TuilanAchievementParams): Promise<TuilanAchievement> {
+  async getTuilanAchievement(
+    params: TuilanAchievementParams,
+  ): Promise<TuilanAchievement> {
     return this.get('/data/tuilan/achievement', params);
   }
 
@@ -462,7 +612,9 @@ export class ClientService extends JX3APIClient {
    * 成语接龙
    * @param params.name 输入的四字成语，用于进行成语接龙
    */
-  async getIdiomSolitaire(params: IdiomSolitaireParams): Promise<IdiomSolitaire> {
+  async getIdiomSolitaire(
+    params: IdiomSolitaireParams,
+  ): Promise<IdiomSolitaire> {
     return this.get('/data/idiom/solitaire', params);
   }
 
@@ -536,7 +688,9 @@ export class ClientService extends JX3APIClient {
    * @param params.pitch_rate 音调调节，范围为 -500 到 500，默认值：0
    * @param params.text 待合成的文本内容
    */
-  async getSoundConverter(params: SoundConverterParams): Promise<SoundConverter> {
+  async getSoundConverter(
+    params: SoundConverterParams,
+  ): Promise<SoundConverter> {
     return this.get('/data/sound/converter', params);
   }
-} 
+}

@@ -55,7 +55,7 @@ export interface ActiveCelebs {
 }
 
 export interface ActiveCelebsParams {
-  name: "楚天社" | "云从社" | "披风会";
+  name: '楚天社' | '云从社' | '披风会';
 }
 
 // 科举答案查询
@@ -425,7 +425,7 @@ export interface RankServerStatistical {
 }
 
 export interface RankServerStatisticalParams {
-  table: "个人" | "帮会" | "阵营" | "试炼";
+  table: '个人' | '帮会' | '阵营' | '试炼';
   name: string;
 }
 
@@ -447,7 +447,7 @@ export interface RankStatistical {
 
 export interface RankStatisticalParams {
   server: string;
-  table: "个人" | "帮会" | "阵营" | "试炼";
+  table: '个人' | '帮会' | '阵营' | '试炼';
   name: string;
 }
 
@@ -887,8 +887,6 @@ export interface ServerAntivice {
   time: number;
 }
 
-
-
 // 跨服阵营事件
 export interface ServerEvent {
   id: number;
@@ -1039,8 +1037,8 @@ export interface TradeDemon {
   wanbaolou: string;
   dd373: string;
   uu898: string;
-  "5173": string;
-  "7881": string;
+  '5173': string;
+  '7881': string;
   time: number;
   date: string;
 }
@@ -1116,7 +1114,25 @@ export interface TuilanAchievementParams {
   server: string;
   name: string;
   class: 1 | 2 | 3;
-  subclass: "杂闻" | "武学" | "修为" | "装备" | "技艺" | "阅读" | "任务" | "足迹" | "战斗" | "声望" | "秘境" | "帮会" | "阵营" | "节日" | "活动" | "风雨江湖路" | "家园" | "剑侠录";
+  subclass:
+    | '杂闻'
+    | '武学'
+    | '修为'
+    | '装备'
+    | '技艺'
+    | '阅读'
+    | '任务'
+    | '足迹'
+    | '战斗'
+    | '声望'
+    | '秘境'
+    | '帮会'
+    | '阵营'
+    | '节日'
+    | '活动'
+    | '风雨江湖路'
+    | '家园'
+    | '剑侠录';
   ticket: string;
 }
 
@@ -1176,7 +1192,19 @@ export interface TiebaRandom {
 }
 
 export interface TiebaRandomParams {
-  class: "818" | "616" | "鬼网三" | "鬼网3" | "树洞" | "记录" | "教程" | "街拍" | "故事" | "避雷" | "吐槽" | "提问";
+  class:
+    | '818'
+    | '616'
+    | '鬼网三'
+    | '鬼网3'
+    | '树洞'
+    | '记录'
+    | '教程'
+    | '街拍'
+    | '故事'
+    | '避雷'
+    | '吐槽'
+    | '提问';
   server?: string;
   limit?: number;
 }
@@ -1252,4 +1280,3 @@ export interface SoundConverterParams {
   pitch_rate?: number;
   text: string;
 }
-

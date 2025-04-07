@@ -42,8 +42,8 @@ import { JX3API } from 'jx3api-ts';
 
 // 创建实例
 const api = new JX3API({
-  token: 'your_token',  // 可选
-  ticket: 'your_ticket' // 可选
+  token: 'your_token', // 可选
+  ticket: 'your_ticket', // 可选
 });
 
 // 查询服务器状态
@@ -71,7 +71,7 @@ api.ws.connect();
 api.ws.subscribe({
   event: 'server_status',
   callback: (data) => console.log('服务器状态更新:', data),
-  filter: { server: '梦江南' }
+  filter: { server: '梦江南' },
 });
 ```
 
