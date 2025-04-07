@@ -8,12 +8,12 @@
     "outDir": "lib" /* 编译输出目录 */,
     "declarationDir": "./lib" /* 声明文件目录 */,
     "declaration": true /* 自动创建声明文件(.d.ts) */,
-    "sourceMap": true /* 自动生成sourcemap文件 */,
+    "sourceMap": false /* 自动生成sourcemap文件 */,
     "rootDir": "./src" /* 项目源码根目录，用来控制编译输出的目录结构 */,
     "strict": true /* 启用严格模式 */,
     "moduleResolution": "node",
     "typeRoots": ["./node_modules/@types", "./types"]
   },
-  "include": ["src/*", "src/common/axiosClient.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "lib"]
 }
