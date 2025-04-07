@@ -5,17 +5,16 @@ import tseslint from 'typescript-eslint';
 import prettierPlugin from 'eslint-plugin-prettier/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
-  {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,ts}'],
-    plugins: { js },
-    extends: ['js/recommended'],
-  },
-  tseslint.configs.recommended,
+  // tseslint.configs.recommended,
   eslintConfigPrettier,
-  prettierPlugin
+  {
+    files: ['**/*.{js,mjs,cjs,ts}'],
+    plugins: { js, tseslint },
+    extends: ['js/recommended', 'tseslint/recommended'],
+    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // 允许使用 any 类型
+    },
+  },
+  prettierPlugin,
 ]);
