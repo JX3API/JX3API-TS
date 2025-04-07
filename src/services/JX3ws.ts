@@ -5,8 +5,8 @@ type Options = {
   wstoken: string;
 };
 
-class JX3ws {
-  public wsClient: WebSocketClient;
+export class JX3ws {
+  private wsClient: WebSocketClient | null = null;
   eventHandler: Partial<
     Record<keyof WsEvent, Array<{ key: string; callback: any }>>
   > = {};
@@ -15,7 +15,7 @@ class JX3ws {
     this.init(options);
   }
 
-  init = (options: Options) => {
+  private init = (options: Options) => {
     this.wsClient = new WebSocketClient({
       url: `${options.wsUrl}?token=${options.wstoken}`,
       heartbeatInterval: 30000,
@@ -52,4 +52,3 @@ class JX3ws {
     }
   };
 }
-export default JX3ws;

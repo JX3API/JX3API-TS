@@ -115,7 +115,7 @@ import {
   SoundConverterParams,
 } from '../types/resType';
 
-export class ClientService extends JX3APIClient {
+export class JX3api extends JX3APIClient {
   /**
    * 获取活动日历
    * @param params.server 服务器名（可选）

@@ -132,8 +132,139 @@ export type WsEvent = {
     action: 1102;
     data: { zone: string; server: string; name: string; time: number };
   };
+  '1103': {
+    action: 1103;
+    data: {
+      zone: string;
+      server: string;
+      camp_name: string;
+      namap_nameme: string;
+      castle: string;
+      time: number;
+    };
+  };
+  '1104': {
+    action: 1104;
+    data: {
+      zone: string;
+      server: string;
+      camp_name: string;
+      tong_name: string;
+      castle: string;
+      time: number;
+    };
+  };
+  '1105': {
+    action: 1105;
+    data: {
+      zone: string;
+      server: string;
+      camp_name: string;
+      castle: string;
+      time: number;
+    };
+  };
+  '1106': {
+    action: 1106;
+    data: {
+      zone: string;
+      server: string;
+      camp_name: string;
+      tong_list: string[];
+      time: number;
+    };
+  };
+  '1107': {
+    action: 1107;
+    data: {
+      zone: string;
+      server: string;
+      camp_name: string;
+      role_name: string;
+      item_name: string;
+      amount: string;
+      time: number;
+    };
+  };
+  '1108': {
+    action: 1108;
+    data: {
+      zone: string;
+      server: string;
+      tong_a_name: string;
+      tong_b_name: string;
+      hour: string;
+      time: number;
+    };
+  };
+  '1109': {
+    action: 1109;
+    data: {
+      zone: string;
+      server: string;
+      tong_a_name: string;
+      tong_b_name: string;
+      time: number;
+    };
+  };
+  '1110': {
+    action: 1110;
+    data: {
+      zone: string;
+      server: string;
+      tong_a_name: string;
+      tong_b_name: string;
+      tong_map_name: string;
+      time: number;
+    };
+  };
+  '1111': {
+    action: 1111;
+    data: {
+      zone: string;
+      server: string;
+      tong_a_name: string;
+      tong_b_name: string;
+      tong_map_name: string;
+      victory_tong_name: string;
+      score: string;
+      time: number;
+    };
+  };
+  '2001': {
+    action: 2001;
+    data: { zone: string; server: string; status: number };
+  };
+  '2002': {
+    action: 2002;
+    data: { class: string; title: string; url: string; date: number };
+  };
+  '2003': {
+    action: 2003;
+    data: {
+      now_version: string;
+      new_version: string;
+      package_num: number;
+      package_size: string;
+    };
+  };
+  '2004': {
+    action: 2004;
+    data: {
+      class: string;
+      server: string;
+      name: string;
+      title: string;
+      url: string;
+      date: string;
+    };
+  };
   '2005': {
     action: 2005;
     data: { server: string; castle: string; start: number };
+  };
+  '2006': {
+    action: 2006;
+    data: { name: string; site: string; desc: string; time: number };
   };
 };
