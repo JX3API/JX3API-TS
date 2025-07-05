@@ -1280,3 +1280,337 @@ export interface SoundConverterParams {
   pitch_rate?: number;
   text: string;
 }
+
+// 下一次扶摇九天活动
+export interface ActiveNextEvent {
+  zone: string;
+  server: string;
+  status: number;
+  time: number;
+}
+
+export interface ActiveNextEventParams {
+  server?: string;
+}
+
+// 挂件信息
+export interface ArchivedPendant {
+  id: number;
+  class: string;
+  name: string;
+  ui: string;
+  source: string;
+  desc: string;
+}
+
+export interface ArchivedPendantParams {
+  name: string;
+}
+
+// 宠物出现记录
+export interface ArchivedPetEvent {
+  zone: string;
+  server: string;
+  name: string;
+  data: {
+    npc_name: string;
+    map_name: string;
+    min_time: number;
+    max_time: number;
+  };
+  time: number;
+}
+
+export interface ArchivedPetEventParams {
+  server: string;
+}
+
+// 名剑大会排行榜
+export interface ArenaAwesome {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  forceName: string;
+  avatarUrl: string;
+  rankNum: string;
+  score: string;
+  upNum: string;
+  winRate: string;
+}
+
+export interface ArenaAwesomeParams {
+  mode?: number;
+  limit?: number;
+  ticket: string;
+}
+
+// 角色近期名剑战绩
+export interface ArenaRecent {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  roleId: string;
+  globalRoleId: string;
+  forceName: string;
+  forceId: string;
+  bodyName: string;
+  bodyId: string;
+  tongName: string | null;
+  tongId: string | null;
+  campName: string;
+  campId: string;
+  personName: string;
+  personId: string;
+  personAvatar: string;
+  performance: {
+    [key: string]: {
+      mmr: number;
+      grade: number;
+      ranking: string;
+      winCount: number;
+      totalCount: number;
+      mvpCount: number;
+      pvpType: string;
+      winRate: number;
+    };
+  };
+  history: Array<{
+    zone: string;
+    server: string;
+    avgGrade: number;
+    totalMmr: number;
+    mmr: number;
+    kungfu: string;
+    pvpType: number;
+    won: boolean;
+    mvp: boolean;
+    startTime: number;
+    endTime: number;
+  }>;
+  trend: Array<{
+    matchDate: number;
+    mmr: number;
+    winRate: number;
+  }>;
+}
+
+export interface ArenaRecentParams {
+  server: string;
+  name: string;
+  mode?: number;
+  ticket: string;
+}
+
+// 名剑大会各门派表现
+export interface ArenaSchool {
+  name: string;
+  this: number;
+  last: number;
+}
+
+export interface ArenaSchoolsParams {
+  mode?: number;
+  ticket: string;
+}
+
+// 赤兔幼驹刷新信息
+export interface ChituRecord {
+  id: number;
+  server: string;
+  map_name: string;
+  horse: string;
+  send: number;
+  date: string;
+}
+
+// 马场马驹刷新信息
+export interface HorseRanch {
+  zone: string;
+  server: string;
+  data: {
+    [key: string]: string[];
+  };
+  note: string;
+}
+
+export interface HorseRanchParams {
+  server: string;
+}
+
+// 奇遇统计
+export interface LuckCollect {
+  server: string;
+  event: string;
+  count: number;
+  data: {
+    name: string;
+    time: number;
+  };
+}
+
+export interface LuckCollectParams {
+  server: string;
+  num?: number;
+}
+
+// 全服奇遇统计
+export interface LuckServerStatistical {
+  id: number;
+  zone: string;
+  server: string;
+  name: string;
+  event: string;
+  status: number;
+  time: number;
+}
+
+export interface LuckServerStatisticalParams {
+  name: string;
+  limit?: number;
+}
+
+// 角色在线状态
+export interface RoleOnlineStatus {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  onlineStatus: boolean;
+}
+
+export interface RoleOnlineStatusParams {
+  server: string;
+  name: string;
+}
+
+// 角色所有名片墙信息
+export interface ShowRecord {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  showHash: string;
+  showActive: boolean;
+  showAvatar: string;
+  saveTime: number;
+}
+
+export interface ShowRecordsParams {
+  server: string;
+  name: string;
+}
+
+// 黑市物品价格信息
+export interface TradeItemRecord {
+  name: string;
+  class: string;
+  subclass: string;
+  alias: string;
+  subalias: string;
+}
+
+export interface TradeItemRecordsParams {
+  server?: string;
+  name: string;
+}
+
+// 交易行价格信息
+export interface TradeMarket {
+  name: string;
+  icon: number;
+  type: number;
+  avg: {
+    lowestPrice: number;
+    avgPrice: number;
+    highestPrice: number;
+  };
+  data: Array<{
+    created: number;
+    n_count: number;
+    n_money: number;
+    server: string;
+    unit_price: number;
+  }>;
+}
+
+export interface TradeMarketParams {
+  server: string;
+  name: string;
+}
+
+// 物品黑市价格信息
+export interface TradeRecord {
+  id: number;
+  class: string;
+  subclass: string;
+  name: string;
+  alias: string;
+  subalias: string;
+  row: string;
+  level: number;
+  desc: string;
+  view: string;
+  date: string;
+  data: Array<
+    Array<{
+      id: string;
+      index: number;
+      zone: string;
+      server: string;
+      value: number;
+      sales: number;
+      token: string;
+      source: number;
+      date: string;
+      status: number;
+      datetime: string;
+    }>
+  >;
+}
+
+export interface TradeRecordsParams {
+  server?: string;
+  name: string;
+}
+
+// 模糊搜索外观物品
+export interface TradeSearch {
+  name: string;
+  class: string;
+  subclass: string;
+  alias: string;
+  subalias: string;
+}
+
+export interface TradeSearchParams {
+  name: string;
+}
+
+// 上报客户端日常任务
+export interface SaveClientCalendar {
+  war_text: string;
+  team_text: string;
+}
+
+export interface SaveClientCalendarParams {
+  szWar: string;
+  szCommon?: string;
+  szDungeons?: string;
+  szTeamDungeons: string;
+}
+
+// 上报推栏日常任务
+export interface SaveTuilanCalendar {
+  war: string;
+}
+
+export interface SaveTuilanCalendarParams {
+  ticket: string;
+}
+
+// 更新推栏周常任务
+export interface SaveWeekCalendar {
+  team: string;
+}
+
+export interface SaveWeekCalendarParams {
+  ticket: string;
+}

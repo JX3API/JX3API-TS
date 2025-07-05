@@ -113,6 +113,43 @@ import {
   SaohuaContent,
   SoundConverter,
   SoundConverterParams,
+  ActiveNextEvent,
+  ActiveNextEventParams,
+  ArchivedPendant,
+  ArchivedPendantParams,
+  ArchivedPetEvent,
+  ArchivedPetEventParams,
+  ArenaAwesome,
+  ArenaAwesomeParams,
+  ArenaRecent,
+  ArenaRecentParams,
+  ArenaSchool,
+  ArenaSchoolsParams,
+  ChituRecord,
+  HorseRanch,
+  HorseRanchParams,
+  LuckCollect,
+  LuckCollectParams,
+  LuckServerStatistical,
+  LuckServerStatisticalParams,
+  RoleOnlineStatus,
+  RoleOnlineStatusParams,
+  ShowRecord,
+  ShowRecordsParams,
+  TradeItemRecord,
+  TradeItemRecordsParams,
+  TradeMarket,
+  TradeMarketParams,
+  TradeRecord,
+  TradeRecordsParams,
+  TradeSearch,
+  TradeSearchParams,
+  SaveClientCalendar,
+  SaveClientCalendarParams,
+  SaveTuilanCalendar,
+  SaveTuilanCalendarParams,
+  SaveWeekCalendar,
+  SaveWeekCalendarParams,
 } from '../types/resType';
 
 export class JX3api extends JX3APIClient {
@@ -692,5 +729,190 @@ export class JX3api extends JX3APIClient {
     params: SoundConverterParams,
   ): Promise<SoundConverter> {
     return this.get('/data/sound/converter', params);
+  }
+
+  /**
+   * 获取下一次扶摇九天活动开启的时间
+   * @param params.server 服务器名（可选）
+   */
+  async getActiveNextEvent(
+    params?: ActiveNextEventParams,
+  ): Promise<ActiveNextEvent[]> {
+    return this.get('/data/active/next/event', params);
+  }
+
+  /**
+   * 查询挂件的效果及获取方式
+   * @param params.name 挂件名称
+   */
+  async getArchivedPendant(
+    params: ArchivedPendantParams,
+  ): Promise<ArchivedPendant[]> {
+    return this.get('/data/archived/pendant', params);
+  }
+
+  /**
+   * 查询宠物的出现记录
+   * @param params.server 服务器名
+   */
+  async getArchivedPetEvent(
+    params: ArchivedPetEventParams,
+  ): Promise<ArchivedPetEvent[]> {
+    return this.get('/data/archived/petEvent', params);
+  }
+
+  /**
+   * 查询名剑大会的排行榜信息
+   * @param params.mode 比赛模式，默认33
+   * @param params.limit 返回数量，默认20
+   * @param params.ticket 推栏ticket
+   */
+  async getArenaAwesome(params: ArenaAwesomeParams): Promise<ArenaAwesome[]> {
+    return this.get('/data/arena/awesome', params);
+  }
+
+  /**
+   * 查询角色近期的名剑战绩记录
+   * @param params.server 服务器名
+   * @param params.name 角色名
+   * @param params.mode 比赛模式
+   * @param params.ticket 推栏ticket
+   */
+  async getArenaRecent(params: ArenaRecentParams): Promise<ArenaRecent> {
+    return this.get('/data/arena/recent', params);
+  }
+
+  /**
+   * 统计角色近期的名剑战绩数据
+   * @param params.mode 比赛模式，默认33
+   * @param params.ticket 推栏ticket
+   */
+  async getArenaSchools(params: ArenaSchoolsParams): Promise<ArenaSchool[]> {
+    return this.get('/data/arena/schools', params);
+  }
+
+  /**
+   * 获取今天刷新出的赤兔幼驹相关信息
+   */
+  async getChituRecords(): Promise<ChituRecord[]> {
+    return this.get('/data/chitu/records');
+  }
+
+  /**
+   * 查询指定区服的马场里即将刷新的马驹信息
+   * @param params.server 服务器名
+   */
+  async getHorseRanch(params: HorseRanchParams): Promise<HorseRanch> {
+    return this.get('/data/horse/ranch', params);
+  }
+
+  /**
+   * 统计指定区服内奇遇的近期触发角色记录
+   * @param params.server 服务器名
+   * @param params.num 汇总时间范围，默认7天
+   */
+  async getLuckCollect(params: LuckCollectParams): Promise<LuckCollect[]> {
+    return this.get('/data/luck/collect', params);
+  }
+
+  /**
+   * 统计全服指定奇遇的近期触发记录
+   * @param params.name 奇遇名称
+   * @param params.limit 返回数量，默认10
+   */
+  async getLuckServerStatistical(
+    params: LuckServerStatisticalParams,
+  ): Promise<LuckServerStatistical[]> {
+    return this.get('/data/luck/server/statistical', params);
+  }
+
+  /**
+   * 查询指定角色的当前在线状态
+   * @param params.server 服务器名
+   * @param params.name 角色名
+   */
+  async getRoleOnlineStatus(
+    params: RoleOnlineStatusParams,
+  ): Promise<RoleOnlineStatus> {
+    return this.get('/data/role/online/status', params);
+  }
+
+  /**
+   * 查询指定角色的所有名片墙信息
+   * @param params.server 服务器名
+   * @param params.name 角色名
+   */
+  async getShowRecords(params: ShowRecordsParams): Promise<ShowRecord[]> {
+    return this.get('/data/show/records', params);
+  }
+
+  /**
+   * 查询指定物品的黑市价格信息
+   * @param params.server 服务器名（可选）
+   * @param params.name 物品名称
+   */
+  async getTradeItemRecords(
+    params: TradeItemRecordsParams,
+  ): Promise<TradeItemRecord[]> {
+    return this.get('/data/trade/item/records', params);
+  }
+
+  /**
+   * 查询指定物品的交易行价格信息
+   * @param params.server 服务器名
+   * @param params.name 物品名称
+   */
+  async getTradeMarket(params: TradeMarketParams): Promise<TradeMarket[]> {
+    return this.get('/data/trade/market', params);
+  }
+
+  /**
+   * 统计指定物品的黑市价格信息
+   * @param params.server 服务器名（可选）
+   * @param params.name 物品名称
+   */
+  async getTradeRecords(params: TradeRecordsParams): Promise<TradeRecord> {
+    return this.get('/data/trade/records', params);
+  }
+
+  /**
+   * 模糊搜索外观物品
+   * @param params.name 物品名称
+   */
+  async getTradeSearch(params: TradeSearchParams): Promise<TradeSearch[]> {
+    return this.get('/data/trade/search', params);
+  }
+
+  /**
+   * 上报客户端的日常任务信息
+   * @param params.szWar 大战任务
+   * @param params.szCommon 公共周常
+   * @param params.szDungeons 五人周常
+   * @param params.szTeamDungeons 十人周常
+   */
+  async saveClientCalendar(
+    params: SaveClientCalendarParams,
+  ): Promise<SaveClientCalendar> {
+    return this.post('/save/client/calendar', params);
+  }
+
+  /**
+   * 上报推栏app中的日常任务信息
+   * @param params.ticket 推栏ticket
+   */
+  async saveTuilanCalendar(
+    params: SaveTuilanCalendarParams,
+  ): Promise<SaveTuilanCalendar> {
+    return this.post('/save/tuilan/calendar', params);
+  }
+
+  /**
+   * 更新推栏app中的周常任务信息
+   * @param params.ticket 推栏ticket
+   */
+  async saveWeekCalendar(
+    params: SaveWeekCalendarParams,
+  ): Promise<SaveWeekCalendar> {
+    return this.post('/save/week/calendar', params);
   }
 }
