@@ -1,17 +1,18 @@
 import WebSocketClient from '../common/wsClient';
-import { WsEvent } from '../types/eventType';
+import { EventEmitter } from 'events';
+
 type Options = {
   wsUrl: string;
   wstoken: string;
 };
-
-export class JX3ws {
+type WSEvent = {
+  action: string;
+  data: any;
+};
+export class JX3ws extends EventEmitter {
   private wsClient: WebSocketClient | null = null;
-  eventHandler: Partial<
-    Record<keyof WsEvent, Array<{ key: string; callback: any }>>
-  > = {};
-
   constructor(options: Options) {
+    super();
     this.init(options);
   }
 
@@ -23,32 +24,21 @@ export class JX3ws {
     });
     this.wsClient.on('message', (data) => {
       try {
-        const event = JSON.parse(data) as WsEvent[keyof WsEvent];
-        this.eventHandler[event.action]?.forEach((item) => {
-          item.callback(event);
-        });
+        const event = JSON.parse(data) as WSEvent;
+        this.emit('message', event);
+        this.emit(event.action, event);
       } catch (error) {
         console.error('Error processing message:', error);
       }
     });
   };
 
-  on = <T extends keyof WsEvent>(
-    event: T,
-    key: string,
-    callback: (data: WsEvent[T]) => void,
-  ) => {
-    if (!this.eventHandler[event]) {
-      this.eventHandler[event] = [];
-    }
-    this.eventHandler[event]!.push({ key, callback });
-  };
-
-  off = (event: keyof WsEvent, key: string) => {
-    if (this.eventHandler[event]) {
-      this.eventHandler[event] = this.eventHandler[event]!.filter(
-        (item) => item.key !== key,
-      );
-    }
-  };
+  public static Create(options: Options) {
+    return new JX3ws(options);
+  }
+  public clear() {
+    this.wsClient?.close();
+    this.wsClient = null;
+    this.removeAllListeners();
+  }
 }

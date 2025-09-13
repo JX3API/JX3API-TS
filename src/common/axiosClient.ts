@@ -1,16 +1,17 @@
 import axios, { AxiosInstance } from 'axios';
+type Options = {
+  token?: string;
+  ticket?: string;
+  baseURL?: string;
+};
 
 export class JX3APIClient {
   protected client: AxiosInstance;
-  private token?: string;
   private ticket?: string;
 
-  constructor(options: { token?: string; ticket?: string; baseURL?: string }) {
+  constructor(options: Options) {
     const { token, ticket, baseURL = 'https://www.jx3api.com' } = options;
-
-    this.token = token;
     this.ticket = ticket;
-
     this.client = axios.create({
       baseURL,
       headers: token ? { token } : {},
@@ -20,9 +21,7 @@ export class JX3APIClient {
     this.client.interceptors.response.use(
       (response) => {
         const { code, msg, data } = response.data;
-        if (code !== 200) {
-          throw new Error(`API Error: ${msg}`);
-        }
+        if (code !== 200) throw new Error(`API Error: ${msg}`);
         return data;
       },
       (error) => {

@@ -73,7 +73,7 @@
   "type": "module",
   "dependencies": {
     "@types/ws": "^8.18.1",
-    "axios": "^1.7.9",
+    "axios": "^1.12.1",
     "ws": "^8.18.1"
   }
 }
