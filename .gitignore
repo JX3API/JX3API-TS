@@ -1,5 +1,4 @@
 node_modules/
-coverage/
-*.log
-lib/
-doc/
+dist/
+.DS_Store
+*.tgz
