@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.0]
+
+- 新增 CommonJS 构建产物，支持 `require("jx3api-ts")`
+- 为主入口和子入口增加 `require` 条件导出
+- 保留现有 ESM 构建和 `import` 条件导出
+
 ## [3.0.1]
 
 - 新增多入口导出：`jx3api-ts/types`、`jx3api-ts/client`、`jx3api-ts/socket`

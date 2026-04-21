@@ -3,7 +3,7 @@
  *
  * @example
  * ```ts
- * import { JX3API } from "jx3api-sdk";
+ * import { JX3API } from "jx3api-ts";
  *
  * const api = new JX3API({ token: "YOUR_TOKEN", ticket: "YOUR_TICKET" });
  *
