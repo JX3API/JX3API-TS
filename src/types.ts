@@ -712,13 +712,16 @@ export interface MasterSearchData {
 }
 
 // --- mech ---
+export interface MechCalculatorNode {
+  node: string;
+  data: string;
+}
+
 export interface MechCalculatorData {
-  now_time: string;
-  now_node: string;
-  now_result: string;
-  next_node: string;
-  next_result: string;
-  interval_time: string;
+  curr: MechCalculatorNode;
+  next: MechCalculatorNode;
+  time: string;
+  cdtn: string;
 }
 
 // --- mentor ---

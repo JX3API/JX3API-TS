@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.3]
+
+- 修复 `MechCalculatorData` 类型，使其匹配副本解密接口的实际返回结构
+
 ## [3.1.2]
 
 - 修复 `MasterSearchData` 类型，使其匹配区服搜索接口的实际返回结构
