@@ -81,10 +81,6 @@ export class HttpClient {
 
       const json = (await res.json()) as ApiResponse<T>;
 
-      if (json.code !== 200) {
-        throw new JX3ApiError(json.code, json.msg, path);
-      }
-
       return json;
     } finally {
       clearTimeout(timer);

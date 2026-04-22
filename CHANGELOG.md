@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.1]
+
+- 调整 HTTP Client 行为：当 API 响应 `code !== 200` 时直接返回 JSON，不再抛出 `JX3ApiError`
+
 ## [3.1.0]
 
 - 新增 CommonJS 构建产物，支持 `require("jx3api-ts")`

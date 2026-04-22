@@ -1,6 +1,6 @@
 {
   "name": "jx3api-ts",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Type-safe Node.js SDK for JX3 API (jx3api.com), covering all HTTP endpoints and WebSocket events.",
   "type": "module",
   "exports": {
@@ -35,8 +35,8 @@
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p tsconfig.json",
-    "build:cjs": "tsc -p tsconfig.cjs.json && printf '{\"type\":\"commonjs\"}\\n' > dist/cjs/package.json",
-    "clean": "rm -rf dist",
+    "build:cjs": "tsc -p tsconfig.cjs.json && node -e \"require('node:fs').writeFileSync('dist/cjs/package.json', JSON.stringify({ type: 'commonjs' }) + '\\n')\"",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
     "prepublishOnly": "npm run clean && npm run build"
   },
   "keywords": [
