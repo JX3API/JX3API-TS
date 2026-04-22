@@ -187,12 +187,6 @@ export interface NewsAnnounceParams {
   limit?: number;
 }
 
-// --- raid ---
-export interface RaidRecordsParams {
-  server: string;
-  name: string;
-  token?: string;
-}
 
 // --- ranch ---
 export interface RanchRecordsParams {
@@ -770,28 +764,6 @@ export interface NewsItem {
   title: string;
   date: string;
   url: string;
-}
-
-// --- raid ---
-export interface RaidRecordsData {
-  zoneName: string;
-  serverName: string;
-  roleName: string;
-  roleId: string;
-  globalRoleId: string;
-  detail: Array<{
-    mapName: string;
-    mapId: number;
-    bossCount: number;
-    bossFinished: number;
-    bossProgress: Array<{
-      name: string;
-      index: number;
-      progressId: number;
-      finished: boolean;
-    }>;
-  }>;
-  cacheTime: number;
 }
 
 // --- ranch ---
