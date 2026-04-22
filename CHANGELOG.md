@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.2]
+
+- 修复 `MasterSearchData` 类型，使其匹配区服搜索接口的实际返回结构
+
 ## [3.1.1]
 
 - 调整 HTTP Client 行为：当 API 响应 `code !== 200` 时直接返回 JSON，不再抛出 `JX3ApiError`

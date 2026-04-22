@@ -1,6 +1,6 @@
 {
   "name": "jx3api-ts",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Type-safe Node.js SDK for JX3 API (jx3api.com), covering all HTTP endpoints and WebSocket events.",
   "type": "module",
   "exports": {

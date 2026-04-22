@@ -702,12 +702,13 @@ export type HomeTravelItem = HomeFurnitureItem;
 // --- master ---
 export interface MasterSearchData {
   id: string;
+  center: string;
   zone: string;
   name: string;
-  column: string;
-  duowan: Record<string, unknown>;
-  abbreviation: string[];
-  subordinate: string[];
+  event: number;
+  voice: Record<string, number[]>;
+  alias: string[];
+  slave: string[];
 }
 
 // --- mech ---
