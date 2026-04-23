@@ -83,6 +83,11 @@ export interface CardCachedParams {
   name: string;
   token?: string;
 }
+export interface CardRandomParams {
+  server?: string;
+  body?: string;
+  force?: string;
+}
 
 // --- chitu ---
 export interface ChituRecordsParams {
@@ -186,7 +191,6 @@ export interface NewsAllnewsParams {
 export interface NewsAnnounceParams {
   limit?: number;
 }
-
 
 // --- ranch ---
 export interface RanchRecordsParams {
@@ -302,7 +306,7 @@ export interface SoundConverterParams {
 
 // --- status ---
 export interface StatusCheckParams {
-  type?: number;
+  type?: 0 | 1;
   server: string;
 }
 
@@ -542,6 +546,15 @@ export interface CardCachedData {
   roleName: string;
   showHash: string;
   showAvatar: string;
+}
+
+export interface CardRandomData {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  showHash: string;
+  showAvatar: string;
+  showStatus: number;
 }
 
 // --- chitu ---
@@ -1000,10 +1013,17 @@ export interface SoundConverterData {
 }
 
 // --- status ---
+
 export interface StatusCheckData {
   zone: string;
   server: string;
-  status: string;
+  status: 0 | 1;
+}
+
+export interface ServerStatus {
+  zone: string;
+  server: string;
+  status: "维护" | "正常" | "繁忙" | "爆满";
 }
 
 // --- steed ---
@@ -1020,8 +1040,6 @@ export interface SteedRecordItem {
   auction_camp_name: string;
   auction_time: number;
   auction_amount: string;
-  start_time: number;
-  end_time: number;
 }
 
 // --- tieba ---

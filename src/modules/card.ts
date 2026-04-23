@@ -1,8 +1,13 @@
 import type { HttpClient } from "../client.js";
 import type {
-  CardRecordParams, CardRecordData,
-  CardRecordsParams, CardRecordsItem,
-  CardCachedParams, CardCachedData,
+  CardRecordParams,
+  CardRecordData,
+  CardRecordsParams,
+  CardRecordsItem,
+  CardCachedParams,
+  CardCachedData,
+  CardRandomParams,
+  CardRandomData,
 } from "../types.js";
 
 export class CardModule {
@@ -21,5 +26,10 @@ export class CardModule {
   /** 缓存名片 */
   cached(params: CardCachedParams) {
     return this.http.request<CardCachedData>("/data/card/cached", params);
+  }
+
+  /** 随机名片 */
+  random(params: CardRandomParams) {
+    return this.http.request<CardRandomData>("/data/card/random", params);
   }
 }
