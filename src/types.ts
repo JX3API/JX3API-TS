@@ -83,6 +83,11 @@ export interface CardCachedParams {
   name: string;
   token?: string;
 }
+export interface CardRandomParams {
+  server?: string;
+  body?: string;
+  force?: string;
+}
 
 // --- chitu ---
 export interface ChituRecordsParams {
@@ -185,13 +190,6 @@ export interface NewsAllnewsParams {
 
 export interface NewsAnnounceParams {
   limit?: number;
-}
-
-// --- raid ---
-export interface RaidRecordsParams {
-  server: string;
-  name: string;
-  token?: string;
 }
 
 // --- ranch ---
@@ -308,7 +306,7 @@ export interface SoundConverterParams {
 
 // --- status ---
 export interface StatusCheckParams {
-  type?: number;
+  type?: 0 | 1;
   server: string;
 }
 
@@ -550,6 +548,15 @@ export interface CardCachedData {
   showAvatar: string;
 }
 
+export interface CardRandomData {
+  zoneName: string;
+  serverName: string;
+  roleName: string;
+  showHash: string;
+  showAvatar: string;
+  showStatus: number;
+}
+
 // --- chitu ---
 export interface ChituRecordItem {
   id: number;
@@ -702,22 +709,26 @@ export type HomeTravelItem = HomeFurnitureItem;
 // --- master ---
 export interface MasterSearchData {
   id: string;
+  center: string;
   zone: string;
   name: string;
-  column: string;
-  duowan: Record<string, unknown>;
-  abbreviation: string[];
-  subordinate: string[];
+  event: number;
+  voice: Record<string, number[]>;
+  alias: string[];
+  slave: string[];
 }
 
 // --- mech ---
+export interface MechCalculatorNode {
+  node: string;
+  data: string;
+}
+
 export interface MechCalculatorData {
-  now_time: string;
-  now_node: string;
-  now_result: string;
-  next_node: string;
-  next_result: string;
-  interval_time: string;
+  curr: MechCalculatorNode;
+  next: MechCalculatorNode;
+  time: string;
+  cdtn: string;
 }
 
 // --- mentor ---
@@ -766,28 +777,6 @@ export interface NewsItem {
   title: string;
   date: string;
   url: string;
-}
-
-// --- raid ---
-export interface RaidRecordsData {
-  zoneName: string;
-  serverName: string;
-  roleName: string;
-  roleId: string;
-  globalRoleId: string;
-  detail: Array<{
-    mapName: string;
-    mapId: number;
-    bossCount: number;
-    bossFinished: number;
-    bossProgress: Array<{
-      name: string;
-      index: number;
-      progressId: number;
-      finished: boolean;
-    }>;
-  }>;
-  cacheTime: number;
 }
 
 // --- ranch ---
@@ -1024,10 +1013,17 @@ export interface SoundConverterData {
 }
 
 // --- status ---
+
 export interface StatusCheckData {
   zone: string;
   server: string;
-  status: string;
+  status: 0 | 1;
+}
+
+export interface ServerStatus {
+  zone: string;
+  server: string;
+  status: "维护" | "正常" | "繁忙" | "爆满";
 }
 
 // --- steed ---
@@ -1044,8 +1040,6 @@ export interface SteedRecordItem {
   auction_camp_name: string;
   auction_time: number;
   auction_amount: string;
-  start_time: number;
-  end_time: number;
 }
 
 // --- tieba ---

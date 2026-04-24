@@ -39,7 +39,6 @@ import { MechModule } from "./modules/mech.js";
 import { MentorModule } from "./modules/mentor.js";
 import { MineModule } from "./modules/mine.js";
 import { NewsModule } from "./modules/news.js";
-import { RaidModule } from "./modules/raid.js";
 import { RanchModule } from "./modules/ranch.js";
 import { RankModule } from "./modules/rank.js";
 import { RecruitModule } from "./modules/recruit.js";
@@ -94,8 +93,6 @@ export class JX3API {
   readonly mine: MineModule;
   /** 新闻公告 */
   readonly news: NewsModule;
-  /** 副本记录 */
-  readonly raid: RaidModule;
   /** 马场刷新 */
   readonly ranch: RanchModule;
   /** 排行榜 */
@@ -149,7 +146,6 @@ export class JX3API {
     this.mentor = new MentorModule(this.#http);
     this.mine = new MineModule(this.#http);
     this.news = new NewsModule(this.#http);
-    this.raid = new RaidModule(this.#http);
     this.ranch = new RanchModule(this.#http);
     this.rank = new RankModule(this.#http);
     this.recruit = new RecruitModule(this.#http);

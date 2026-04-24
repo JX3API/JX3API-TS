@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.8]
+
+- 修复 随机名片接口，参数非必填
+
+## [3.1.7]
+
+- 新增 随机名片接口，支持按照体型，门派查询
+
+## [3.1.6]
+
+- 修复 `status.check` 的返回值类型推导：当 `type = 1` 时返回 `StatusCheckData`，当 `type = 0` 或未传时返回 `ServerStatus`
+- 将 `StatusCheckParams.type` 从宽泛的 `number` 收窄为 `0 | 1`
+
+## [3.1.5]
+
+- 修复 `StatusCheckData` 类型，使其匹配服务器状态接口实际返回结构哦
+
+## [3.1.3]
+
+- 修复 `MechCalculatorData` 类型，使其匹配副本解密接口的实际返回结构
+
+## [3.1.2]
+
+- 修复 `MasterSearchData` 类型，使其匹配区服搜索接口的实际返回结构
+
+## [3.1.1]
+
+- 调整 HTTP Client 行为：当 API 响应 `code !== 200` 时直接返回 JSON，不再抛出 `JX3ApiError`
+
 ## [3.1.0]
 
 - 新增 CommonJS 构建产物，支持 `require("jx3api-ts")`

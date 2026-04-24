@@ -1,11 +1,13 @@
-import type { HttpClient } from "../client.js";
-import type { StatusCheckParams, StatusCheckData } from "../types.js";
+import type { ApiResponse, HttpClient } from "../client.js";
+import type { StatusCheckData, StatusCheckParams, ServerStatus } from "../types.js";
 
 export class StatusModule {
   constructor(private readonly http: HttpClient) {}
 
   /** 开服状态 */
-  check(params: StatusCheckParams) {
-    return this.http.request<StatusCheckData>("/data/status/check", params);
+  check(params: { server: string; type: 1 }): Promise<ApiResponse<StatusCheckData>>;
+  check(params: { server: string; type?: 0 }): Promise<ApiResponse<ServerStatus>>;
+  check(params: StatusCheckParams): Promise<ApiResponse<StatusCheckData | ServerStatus>> {
+    return this.http.request<StatusCheckData | ServerStatus>("/data/status/check", params);
   }
 }
