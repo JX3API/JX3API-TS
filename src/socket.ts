@@ -122,16 +122,11 @@ export class JX3Socket {
   // --- 内部方法 ---
 
   #createConnection(): void {
-    const ws = new WebSocket(this.#url);
+    const ws = new WebSocket(this.#connectionUrl());
     this.#ws = ws;
 
     ws.addEventListener("open", () => {
       this.#reconnectAttempts = 0;
-
-      // 发送 token 进行身份验证
-      if (this.#token) {
-        ws.send(JSON.stringify({ action: 0, token: this.#token }));
-      }
 
       this.#startHeartbeat();
 
@@ -178,6 +173,14 @@ export class JX3Socket {
     ws.addEventListener("error", (event) => {
       for (const fn of this.#metaListeners.error) fn(event);
     });
+  }
+
+  #connectionUrl(): string {
+    if (!this.#token) return this.#url;
+
+    const url = new URL(this.#url);
+    url.searchParams.set("toekn", this.#token);
+    return url.toString();
   }
 
   #startHeartbeat(): void {
