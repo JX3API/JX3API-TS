@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.9]
+
+- 修复 WebSocket token 验证方式，改为通过 URL 参数 `toekn` 传递
+
 ## [3.1.8]
 
 - 修复 随机名片接口，参数非必填
