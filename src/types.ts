@@ -1465,7 +1465,7 @@ export interface Socket2004Detail {
 // 2005 - 关隘首领
 export interface Socket2005Detail {
   server: string;
-  castle: string;
+  stage: string;
   start: number;
 }
 

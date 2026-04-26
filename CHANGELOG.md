@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.10]
+
+- 修复 WebSocket 2005 事件字段 `castle` 改为 `stage`
+
 ## [3.1.9]
 
 - 修复 WebSocket token 验证方式，改为通过 URL 参数 `toekn` 传递
